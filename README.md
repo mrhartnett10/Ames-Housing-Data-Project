@@ -10,7 +10,7 @@ In order to keep our project properly structured and organized, let's create a s
 
 ### Problem Solving Methods
 
-In order to be able to accurately provide insight to Rise, I will initially first have to create a model that can offer reasonable predictions of property sale price for their client data. This will be the bulk of the project as we will see. Throughout the notebooks I will detail each step of the way the steps involved in the model building process. Once a sufficient model has beeen created, I will then apply that model to Rise's client database, predict the sales price, and then perform further analysis with this new information. I will provide a breakdown of why I recommend the neighborhoods that I do and the specific thinking that is best suited for Rise and their goal of profit maximization. 
+In order to be able to accurately provide insight to Rise, I will initially first have to create a regression model that can offer reasonable predictions of property sale price for their client data. This will be the bulk of the project as we will see. Throughout the notebooks I will detail each step of the way the steps involved in the model building process. Once a sufficient model has beeen created, I will then apply that model to Rise's client database, predict the sales price, and then perform further analysis with this new information. I will provide a breakdown of why I recommend the neighborhoods that I do and the specific thinking that is best suited for Rise and their goal of profit maximization. 
 
 ### Data Dictionary
 
@@ -21,6 +21,9 @@ As always we want to be familiar with our data and what it is telling us. The be
 Cleaning the data required us to initially check for any null or missing data. We did encounter quite a bit of Null values on the surface, but after consulting our data dictionary, we saw that these Null values were actually intended to just represnt a "No feature" entry. (ex: NA in Pool QC simpley meant there was No Pool on the proerty). This allowed us to simply replace the Null value with a string 'None' to relay to us the correct category it belonged to. The next null challenge was numerical based, while we couldn't make too many inferences from the data dictionary, I figured it was best to play it moderately safe and impute the Null values with the column means respectively. 
 
 Next step in this process was identifying any outliers. It's easiest to do this through .describe summaries as well as boxplot visualizations. We were most interested in price so started there and uncovered outliers present for the sale price for some homes, but were able to convince ourselves these data points should remain as they more accurately represent the housing data across the varying counties instead of if we had removed them. If we remove them it would be very difficult to create an accurate model that would correlate across different counties where home prices are quite variable.
+
+From our initial scan and cleanup, it was clear that given this extensive data set and meaningful data points, we should be able to effectively answer our original problem statement. But we will have to determine first what features we will want to use to create the model in order to be able to provide Rise an answer to their problem. After we have our predicted prices and then conducted further analysis I am confident we can fully provide insightful recommendations to Rise Reality and assist in maximizing profits.
+ 
 
 ### Preprocessing and Feature Engineering
 
